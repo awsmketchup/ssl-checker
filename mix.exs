@@ -13,7 +13,7 @@ defmodule SslChecker.MixProject do
       start_permanent: Mix.env() == :prod,
 	  package: [
 		  maintainers: ["Samuel Ralak"],
-		  licenses: ["MIT"],
+		  licenses: ["GPL 3.0"],
 		  links: %{github: "https://github.com/awsmketchup/ssl-checker"},
 		  files: ~w(lib) ++ ~w(mix.exs README.md)
 	  ],
