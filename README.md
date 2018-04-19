@@ -1,11 +1,14 @@
 # SslChecker
 
-**TODO: Add description**
+Check validity of SSL Certificate
+
+## Documentation
+
+API documentation can be found at https://hexdocs.pm/ssl_checker/0.1.0
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `ssl_checker` to your list of dependencies in `mix.exs`:
+Add `ssl_checker` to your list of dependencies
 
 ```elixir
 def deps do
@@ -15,7 +18,17 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/ssl_checker](https://hexdocs.pm/ssl_checker).
+## Basics
+```
+iex> SslChecker.check("github.com", 443)
+%{
+	"issuer" => "DigiCert Inc",
+	"notAfter" => "May 17 12:00:00 2018 GMT",
+	"notBefore" => "Mar 10 00:00:00 2016 GMT",
+	"subject" => "GitHub, Inc."
+}
 
+iex> SslChecker.check("invalid.host", 443)
+"unable to load certificate"
+
+```
