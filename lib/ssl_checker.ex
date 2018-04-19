@@ -23,6 +23,7 @@ defmodule SslChecker do
 			output
 			|> format_output
 			|> output_to_map(%{})
+		_ -> "unable to load certificate"
 	end
   end
 
@@ -46,7 +47,7 @@ defmodule SslChecker do
   defp get_key_val([key, val]) when key == "subject" or key == "issuer" do
 	case Regex.run(~r/O=(.*?)\//, val) do
 		nil -> %{ key => "" }
-		arr ->  %{ key => Enum.at(arr, 1) }
+		arr -> %{ key => Enum.at(arr, 1) }
 	end
   end
   defp get_key_val([key, val]), do: %{ key => val }
