@@ -4,23 +4,23 @@ defmodule SslChecker do
 	"""
 
 	@doc """
-	checks SSL validity of the supplied host. It takes
-	the host and optional port as parameter. Port defaults to 443
+		checks SSL validity of the supplied host. It takes
+		the host and optional port as parameter. Port defaults to 443
 
-	Returns a map containing results
+		Returns a map containing results
 
-	## Examples
+		## Examples
 
-	iex> SslChecker.check("github.com", 443)
-	%{
-		"issuer" => "DigiCert Inc",
-		"notAfter" => "May 17 12:00:00 2018 GMT",
-		"notBefore" => "Mar 10 00:00:00 2016 GMT",
-		"subject" => "GitHub, Inc."
-	}
+			iex> SslChecker.check("github.com", 443)
+			%{
+				"issuer" => "DigiCert Inc",
+				"notAfter" => "May 17 12:00:00 2018 GMT",
+				"notBefore" => "Mar 10 00:00:00 2016 GMT",
+				"subject" => "GitHub, Inc."
+			}
 
-	iex> SslChecker.check("invalid.host", 443)
-	"unable to load certificate"
+			iex> SslChecker.check("invalid.host", 443)
+			"unable to load certificate"
 	"""
 
   def check(host, port \\ 443) do
